@@ -9,6 +9,7 @@ import java.util.List;
 public class User implements Serializable {
     private Person user;
     private List<Relative> relatives;
+    private String pdfJSON;
 
     public Person getUser() {
         return user;
@@ -24,6 +25,14 @@ public class User implements Serializable {
 
     public void setRelatives(List<Relative> relatives) {
         this.relatives = relatives;
+    }
+
+    public String getPdfJSON() {
+        return pdfJSON;
+    }
+
+    public void setPdfJSON(String pdfJSON) {
+        this.pdfJSON = pdfJSON;
     }
 
     @Override
