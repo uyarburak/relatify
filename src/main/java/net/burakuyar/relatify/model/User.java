@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class User implements Serializable {
     private Person user;
-    private List<Person> relatives;
+    private List<Relative> relatives;
 
     public Person getUser() {
         return user;
@@ -18,11 +18,11 @@ public class User implements Serializable {
         this.user = user;
     }
 
-    public List<Person> getRelatives() {
+    public List<Relative> getRelatives() {
         return relatives;
     }
 
-    public void setRelatives(List<Person> relatives) {
+    public void setRelatives(List<Relative> relatives) {
         this.relatives = relatives;
     }
 
