@@ -1,6 +1,7 @@
 package net.burakuyar.relatify.model;
 
 import java.io.Serializable;
+import java.util.Base64;
 import java.util.List;
 
 /**
@@ -9,6 +10,7 @@ import java.util.List;
 public class User implements Serializable {
     private Person user;
     private List<Relative> relatives;
+    private String email; // TODO: use EmailValidator.getInstance().isValid(email);
     private String pdfJSON;
 
     public Person getUser() {
@@ -27,12 +29,20 @@ public class User implements Serializable {
         this.relatives = relatives;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getPdfJSON() {
-        return pdfJSON;
+        return new String(Base64.getDecoder().decode(pdfJSON));
     }
 
     public void setPdfJSON(String pdfJSON) {
-        this.pdfJSON = pdfJSON;
+        this.pdfJSON = Base64.getEncoder().encodeToString(pdfJSON.getBytes());
     }
 
     @Override
