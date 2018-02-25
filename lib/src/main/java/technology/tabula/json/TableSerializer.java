@@ -28,7 +28,7 @@ public final class TableSerializer implements JsonSerializer<Table> {
 			if (srcRow.get(0).getText().matches("\\d+")){
 				JsonArray row = new JsonArray();
 				for (RectangularTextContainer textChunk : srcRow) {
-					row.add(textChunk.getText());
+					row.add(textChunk.getText().replaceAll("\\s+", " ").trim());
 				}
 				data.add(row);
 			}
