@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="tr" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div th:if="${message}">
+        <h2 th:text="${message}"/>
+    </div>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        E-posta:<br>
+        <input type="email" name="email"><br>
+        Alt-Ust Soy Agaci Belgesi:<br>
+        <input type="file" name="document" accept="application/pdf"><br>
+        <input type="submit">
+    </form>
+</body>
+</html>
