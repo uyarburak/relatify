@@ -59,6 +59,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public int save(User user){
+        user.setEmail(user.getEmail().toUpperCase());
         return userDao.save(user);
     }
 }
