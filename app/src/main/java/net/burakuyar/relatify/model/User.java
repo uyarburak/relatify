@@ -38,7 +38,7 @@ public class User implements Serializable {
     }
 
     public String getPdfJSON() {
-        return new String(Base64.getDecoder().decode(pdfJSON));
+        return pdfJSON;
     }
 
     public void setPdfJSON(String pdfJSON) {
