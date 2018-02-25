@@ -1,7 +1,9 @@
 package net.burakuyar.relatify.controller;
 
+import net.burakuyar.relatify.model.User;
 import net.burakuyar.relatify.service.UserService;
 import net.burakuyar.relatify.util.JSONExport;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,6 +19,9 @@ import java.io.InputStream;
  */
 @Controller
 public class MainController {
+    @Autowired
+    private UserService userService;
+
     @GetMapping("/")
     String index() {
         return "index";
@@ -30,7 +35,8 @@ public class MainController {
         }
         try {
             InputStream pdfStream = new ByteArrayInputStream(file.getBytes());
-            redirectAttributes.addFlashAttribute("message", new UserService().getUser(email, pdfStream).toString());
+            User user = userService.getUser(email, pdfStream);
+            redirectAttributes.addFlashAttribute("message", userService.save(user));
             return "redirect:/";
         }catch (Exception exception){
             exception.printStackTrace();
