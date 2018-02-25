@@ -1,5 +1,6 @@
 package net.burakuyar.relatify.controller;
 
+import net.burakuyar.relatify.service.UserService;
 import net.burakuyar.relatify.util.JSONExport;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,7 +30,7 @@ public class MainController {
         }
         try {
             InputStream pdfStream = new ByteArrayInputStream(file.getBytes());
-            redirectAttributes.addFlashAttribute("message", new JSONExport().PDFToJSON(pdfStream).toString());
+            redirectAttributes.addFlashAttribute("message", new UserService().getUser(email, pdfStream).toString());
             return "redirect:/";
         }catch (Exception exception){
             exception.printStackTrace();
