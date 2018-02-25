@@ -103,4 +103,20 @@ public class Person implements Serializable{
         // maritalStatus and liveStatus are not include cause they can change by time.
         return Objects.hash(gender, name, surname, fatherName, motherName, birthPlaceAndDate, address, serieNo);
     }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "gender='" + gender + '\'' +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", fatherName='" + fatherName + '\'' +
+                ", motherName='" + motherName + '\'' +
+                ", birthPlaceAndDate='" + birthPlaceAndDate + '\'' +
+                ", address='" + address + '\'' +
+                ", serieNo='" + serieNo + '\'' +
+                ", maritalStatus='" + maritalStatus + '\'' +
+                ", liveStatus='" + liveStatus + '\'' +
+                '}';
+    }
 }

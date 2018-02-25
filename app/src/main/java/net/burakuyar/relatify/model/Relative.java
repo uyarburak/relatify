@@ -24,4 +24,12 @@ public class Relative implements Serializable{
     public void setRelation(String relation) {
         this.relation = relation;
     }
+
+    @Override
+    public String toString() {
+        return "Relative{" +
+                "person=" + person +
+                ", relation='" + relation + '\'' +
+                '}';
+    }
 }

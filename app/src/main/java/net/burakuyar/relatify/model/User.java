@@ -49,4 +49,14 @@ public class User implements Serializable {
     public int hashCode() {
         return this.user.hashCode();
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "user=" + user +
+                ", relatives=" + relatives +
+                ", email='" + email + '\'' +
+                ", pdfJSON='" + pdfJSON + '\'' +
+                '}';
+    }
 }
