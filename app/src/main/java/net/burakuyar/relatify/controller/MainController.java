@@ -1,5 +1,6 @@
 package net.burakuyar.relatify.controller;
 
+import net.burakuyar.relatify.util.JSONExport;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,11 +29,12 @@ public class MainController {
         }
         try {
             InputStream pdfStream = new ByteArrayInputStream(file.getBytes());
+            redirectAttributes.addFlashAttribute("message", new JSONExport().PDFToJSON(pdfStream).toString());
+            return "redirect:/";
         }catch (Exception exception){
             exception.printStackTrace();
             redirectAttributes.addFlashAttribute("message", "Broken file!");
             return "redirect:/";
         }
-        return "index";
     }
 }
